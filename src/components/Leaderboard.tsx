@@ -7,6 +7,7 @@ interface LeaderboardEntry {
   name: string;
   level: number;
   xp: number;
+  wallet: string;
 }
 
 export default function Leaderboard() {
@@ -17,9 +18,11 @@ export default function Leaderboard() {
     const fetchData = () => {
       // Replace this with actual data fetching logic
       const data = [
-        { name: "Alice", level: 5, xp: 1200 },
-        { name: "Bob", level: 4, xp: 900 },
-        { name: "Charlie", level: 3, xp: 600 },
+        { name: "CryptoKing", level: 5, xp: 1200, wallet: "SDSAVCRE5JRAI7UFAVLE5IMIZRD6N6WOJUWKY4GFN34LOBEEUS4W2T2D" },
+        { name: "BlockchainBabe", level: 4, xp: 900, wallet: "GCFX4QW3V5Z3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J" },
+        { name: "DeFiDude", level: 3, xp: 600, wallet: "GDRXE2BQUC3AZV4Y3Q2Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F" },
+        { name: "TokenTitan", level: 6, xp: 1500, wallet: "GBAQW3V5Z3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3" },
+        { name: "SatoshiSam", level: 2, xp: 300, wallet: "GCFX4QW3V5Z3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5F3Q5Y5J5" },
       ];
       setLeaderboardData(data);
     };

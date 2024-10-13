@@ -16,8 +16,16 @@
       const fetchData = () => {
         // Replace this with actual data fetching logic
         const data = [
-          { name: "Achievement 1", description: "Achieve task 1", completed: true },
-          { name: "Achievement 2", description: "Achieve task 2", completed: false },
+          { name: "Liquidity Provider", description: "Provide liquidity to a DeFi pool", completed: true },
+          { name: "Meme Trader", description: "Trade a meme coin successfully", completed: false },
+          { name: "Yield Farmer", description: "Stake tokens in a yield farm", completed: false },
+          { name: "Governance Guru", description: "Participate in a DeFi governance vote", completed: true },
+          { name: "HODLer", description: "Hold a meme coin through a market dip", completed: false },
+          { name: "Whale Watcher", description: "Track a whale's trading activity", completed: true },
+          { name: "Pump and Dump Survivor", description: "Survive a pump and dump scheme", completed: false },
+          { name: "DeFi Explorer", description: "Explore a new DeFi protocol", completed: true },
+          { name: "Meme Coin Collector", description: "Collect 5 different meme coins", completed: false },
+          { name: "Market Analyst", description: "Predict a market trend correctly", completed: true },
         ];
         setAchievements(data);
       };

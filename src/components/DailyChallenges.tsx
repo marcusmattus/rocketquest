@@ -17,8 +17,12 @@ export default function DailyChallenges() {
     const fetchData = () => {
       // Replace this with actual data fetching logic
       const data = [
-        { name: "Challenge 1", description: "Complete task 1", reward: 100, completed: false },
-        { name: "Challenge 2", description: "Complete task 2", reward: 200, completed: true },
+        { name: "DeFi Challenge 1", description: "Provide liquidity to a pool", reward: 100, completed: false },
+        { name: "Trading Challenge 1", description: "Execute a trade on a decentralized exchange", reward: 200, completed: true },
+        { name: "DeFi Challenge 2", description: "Stake tokens in a yield farm", reward: 150, completed: false },
+        { name: "Trading Challenge 2", description: "Analyze market trends and make a prediction", reward: 250, completed: true },
+        { name: "DeFi Challenge 3", description: "Participate in a governance vote", reward: 300, completed: false },
+        { name: "Trading Challenge 3", description: "Set up a stop-loss order", reward: 350, completed: true },
       ];
       setChallenges(data);
     };

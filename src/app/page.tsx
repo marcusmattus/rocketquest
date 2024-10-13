@@ -23,21 +23,22 @@ import TokenCard from '../components/TokenCard'; // Add this line
 
 // Simulated data (same as before)
 const assets = [
-  { name: 'Stellar', symbol: 'XLM', price: 0.15, change: 2.5 },
-  { name: 'USDCoin', symbol: 'USDC', price: 1.00, change: 0.1 },
-  { name: 'PumpToken', symbol: 'PUMP', price: 0.05, change: 10.2 },
-  { name: 'EuroToken', symbol: 'EURT', price: 1.10, change: -0.5 },
+  { name: 'MoonCat', symbol: 'MOONCAT', price: 0.0005, change: 7.8 },
+  { name: 'RocketPug', symbol: 'ROCKETPUG', price: 0.00002, change: 10.1 },
+  { name: 'CheeseCoin', symbol: 'CHEESE', price: 0.0003, change: -2.4 },
+  { name: 'BananaDoge', symbol: 'BANADOGE', price: 0.00007, change: 4.5 },
+  { name: 'LlamaLambo', symbol: 'LLAMBO', price: 0.00001, change: 9.9 },
 ]
 
 const userData = {
-  name: 'Stellar Explorer',
+  name: 'Meme Token Enthusiast',
   level: 5,
   xp: 2500,
   nextLevelXp: 5000,
   achievements: [
-    { name: 'First Swap', description: 'Complete your first asset swap', completed: true },
-    { name: 'Big Spender', description: 'Swap assets worth over 1000 XLM', completed: false },
-    { name: 'Diversified', description: 'Own 5 different assets', completed: false },
+    { name: 'First Meme Swap', description: 'Complete your first meme token swap', completed: true },
+    { name: 'Meme Whale', description: 'Hold over 1 million SHIB', completed: false },
+    { name: 'Meme Collector', description: 'Own 5 different meme tokens', completed: false },
   ],
 }
 
@@ -63,8 +64,7 @@ interface UserBalance {
 export interface Token {
   name: string;
   symbol: string;
-  price: number;
-  change: number;
+  amount: string;
 }
 
 const addNewAsset = (token: Token) => {
@@ -148,41 +148,27 @@ export default function Home() {
   const xdr = ""; // replace this with an xdr string of the transaction you want to sign
   const signWith = ""; // replace this with the address you want to sign with
   const userSignedTransaction = userSignTransaction(xdr, "TESTNET", signWith);
-        // const handleConnectWallet = async () => {
-        //   try {
-        //     const connected = await isConnected(); // Use the correct method to check connection
-        //     if (connected) {
-        //       setIsWalletConnected(true);
-        //       alert('Wallet connected successfully');
-        //     } else {
-        //       alert('Failed to connect wallet');
-        //     }
-        //   } catch (error) {
-        //     console.error('Error connecting wallet:', error);
-        //     alert('Error connecting wallet');
-        //   }
-        // };
 
-        const handleDisconnectWallet = () => {
-          setIsWalletConnected(false);
-          alert('Wallet disconnected successfully');
-          // Additional logic to clear session data if necessary
-        };
+  const handleConnectWallet = async () => {
+    try {
+      const connected = await isConnected(); // Use the correct method to check connection
+      if (connected) {
+        setIsWalletConnected(true);
+        alert('Wallet connected successfully');
+      } else {
+        alert('Failed to connect wallet');
+      }
+    } catch (error) {
+      console.error('Error connecting wallet:', error);
+      alert('Error connecting wallet');
+    }
+  };
 
-        const handleConnectWallet = async () => {
-          try {
-            const connected = await isConnected();
-            if (connected) {
-              setIsWalletConnected(true);
-              alert('Wallet connected successfully');
-            } else {
-              alert('Failed to connect wallet');
-            }
-          } catch (error) {
-            console.error('Error connecting wallet:', error);
-            alert('Error connecting wallet');
-          }
-        };
+  const handleDisconnectWallet = () => {
+    setIsWalletConnected(false);
+    alert('Wallet disconnected successfully');
+    // Additional logic to clear session data if necessary
+  };
 
   const [addNewAsset, setAddNewAsset] = useState(() => {
     const newAsset = {
@@ -195,8 +181,8 @@ export default function Home() {
   });
 
   // Function to handle adding a new token
-  const handleAddNewToken = (newToken: Token) => {
-    setGeneratedTokens(prevTokens => [...prevTokens, newToken]);
+  const handleAddNewToken = (token: Token) => {
+    setGeneratedTokens(prevTokens => [...prevTokens, token]);
   };
 
   return (
@@ -290,7 +276,7 @@ export default function Home() {
           </TabsContent>
           
           <TabsContent value="token">
-            <TokenGenerator />
+            <TokenGenerator addNewAsset={handleAddNewToken} />
           </TabsContent>
           
           <TabsContent value="achievements">
